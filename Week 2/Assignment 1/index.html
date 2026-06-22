@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Day 1: Assignment-1 Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #fff;
+      color: #111;
+    }
+    h3 {
+      font-size: 14px;
+      font-weight: normal;
+      margin-bottom: 12px;
+    }
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 16px;
+    }
+    .input-row input,
+    .input-row select {
+      padding: 4px 6px;
+      font-size: 14px;
+      border: 1px solid #aaa;
+      background: #f0f0f0;
+    }
+    .input-row input[name="name"] { width: 140px; }
+    .input-row select { width: 60px; }
+    .input-row input[name="email"] { width: 180px; }
+    .input-row input[name="mobile"] { width: 130px; }
+
+    .display-section {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 16px;
+    }
+    .display-section p {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 6px 0;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .btn-row button {
+      padding: 4px 10px;
+      font-size: 13px;
+      border: 1px solid #aaa;
+      background: #fff;
+      cursor: pointer;
+    }
+    .btn-row button:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Day 1: Assignment-1 registration Form Github Repo Link <span style="color:red">*</span></h3>
+
+  <div class="input-row">
+    <input type="text" name="name" id="inp-name" placeholder="Name" />
+    <select id="inp-gender">
+      <option value="">--</option>
+      <option value="M">M</option>
+      <option value="F">F</option>
+      <option value="O">O</option>
+    </select>
+    <input type="email" name="email" id="inp-email" placeholder="Email" />
+    <input type="tel" name="mobile" id="inp-mobile" placeholder="Mobile" />
+  </div>
+
+  <div class="display-section">
+    <p id="disp-name">NAME</p>
+    <p id="disp-gender">GENDER</p>
+    <p id="disp-email">EMAIL</p>
+    <p id="disp-mobile">MOBILE</p>
+  </div>
+
+  <div class="btn-row">
+    <button onclick="showField('name')">NAME</button>
+    <button onclick="showField('gender')">GENDER</button>
+    <button onclick="showField('email')">EMAIL</button>
+    <button onclick="showField('mobile')">MOBILE</button>
+    <button onclick="resetForm()">RESET FORM</button>
+    <button onclick="resetDisplay()">RESET DISPLAY</button>
+  </div>
+
+  <script>
+    function showField(field) {
+      const labels = { name: 'NAME', gender: 'GENDER', email: 'EMAIL', mobile: 'MOBILE' };
+      const val = document.getElementById('inp-' + field).value.trim();
+      document.getElementById('disp-' + field).textContent = val || labels[field];
+    }
+
+    function resetForm() {
+      document.getElementById('inp-name').value = '';
+      document.getElementById('inp-gender').value = '';
+      document.getElementById('inp-email').value = '';
+      document.getElementById('inp-mobile').value = '';
+    }
+
+    function resetDisplay() {
+      document.getElementById('disp-name').textContent = 'NAME';
+      document.getElementById('disp-gender').textContent = 'GENDER';
+      document.getElementById('disp-email').textContent = 'EMAIL';
+      document.getElementById('disp-mobile').textContent = 'MOBILE';
+    }
+  </script>
+
+</body>
+</html>
